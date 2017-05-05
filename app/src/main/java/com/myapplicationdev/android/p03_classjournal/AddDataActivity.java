@@ -12,22 +12,21 @@ import android.widget.TextView;
 
 public class AddDataActivity extends AppCompatActivity {
 
-    ImageView iv = (ImageView)findViewById(R.id.ivDG);
-    TextView tvWeek = (TextView)findViewById(R.id.tvWeek);
-    RadioGroup rgGrade = (RadioGroup)findViewById(R.id.rgGrade);
-    Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_data);
 
+        ImageView iv = (ImageView)findViewById(R.id.ivDG);
+        TextView tvWeek = (TextView)findViewById(R.id.tvWeek);
+        final RadioGroup rgGrade = (RadioGroup)findViewById(R.id.rgGrade);
+        Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
+
         iv.setImageResource(R.drawable.dg);
 
 
         Intent i = getIntent();
-        tvWeek.setText("Week " + i.getStringExtra("week"));
+        tvWeek.setText("Week " + i.getIntExtra("week", 0));
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

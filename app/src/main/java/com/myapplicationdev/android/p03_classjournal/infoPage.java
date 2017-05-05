@@ -3,6 +3,7 @@ package com.myapplicationdev.android.p03_classjournal;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +17,8 @@ public class infoPage extends AppCompatActivity {
     ListView lv;
     ArrayAdapter aa;
     ArrayList<Weeks> week;
+
+    int requestCodeForGrade = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class infoPage extends AppCompatActivity {
                 // Put hero object in intent
                 i.putExtra("week", newWeekNumber);
 
+                startActivityForResult(i, requestCodeForGrade);
+
             }
         });
 
@@ -52,11 +57,21 @@ public class infoPage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Log.d("error: ", "ddddddd");
         // Only handle when 2nd activity closed normally
         //  and data contains something
         if (resultCode == RESULT_OK) {
             if (data != null) {
 
+            }
+            if (requestCode == 1){
+                Intent i = getIntent();
+                String grade = i.getStringExtra("grade");
+                int newWeekNumber = lv.getAdapter().getCount() + 1;
+                week.add(new Weeks("Week " + newWeekNumber, grade));
+
+                Log.d("error: ", week.size() + "");
+                aa.notifyDataSetChanged();
             }
         }
     }
