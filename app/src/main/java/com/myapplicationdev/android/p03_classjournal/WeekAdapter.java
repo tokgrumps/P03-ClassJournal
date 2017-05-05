@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class WeekAdapter extends ArrayAdapter<Weeks> {
     private ArrayList<Weeks> week;
     private Context context;
-    private TextView tvSubject, tvGrade;
+    private TextView tvWeek, tvGrade;
 
     public WeekAdapter(Context context, int resource, ArrayList<Weeks> objects){
         super(context, resource, objects);
@@ -31,10 +31,10 @@ public class WeekAdapter extends ArrayAdapter<Weeks> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // "Inflate" the row_main.xmln.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.row_main, parent, false);
+        View rowView = inflater.inflate(R.layout.row_info_page, parent, false);
 
         // Get the TextView object
-        tvSubject = (TextView) rowView.findViewById(R.id.tvSubject);
+        tvWeek = (TextView) rowView.findViewById(R.id.tvWeek);
         tvGrade = (TextView) rowView.findViewById(R.id.tvGrade);
 
 
@@ -44,7 +44,8 @@ public class WeekAdapter extends ArrayAdapter<Weeks> {
         Weeks currentWeek = week.get(position);
         // Set the TextView to show the food
 
-        tvGrade.setText(currentWeek.getName());
+        tvGrade.setText(currentWeek.getGrade());
+        tvWeek.setText(currentWeek.getWeek());
 
         // Return the nicely done up View to the ListView
         return rowView;
