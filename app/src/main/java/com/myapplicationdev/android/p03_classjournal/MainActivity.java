@@ -11,11 +11,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    int requestCodeForModuleCode = 1;
     ListView lvModule;
-
-
-    ArrayList<String> module = new ArrayList<String>();
-    ArrayAdapter<String> aa;
+    ArrayList<Module> module;
+    ArrayAdapter aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +23,20 @@ public class MainActivity extends AppCompatActivity {
 
         lvModule = (ListView) this.findViewById(R.id.ListViewModule);
 
-        module = new ArrayList<String>();
-        module.add(new String("C347"));
+        module = new ArrayList<Module>();
+        module.add(new Module("C347", "Android Programming II"));
+        module.add(new Module("C302", "Web Services"));
 
-        aa = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, module);
+        aa = new ModuleAdapter(this, R.layout.row, module);
         lvModule.setAdapter(aa);
 
         lvModule.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Module selectedModule = module.get(position);
                 Intent intent = new Intent(MainActivity.this, infoPage.class);
-                startActivity(intent);
+                intent.putExtra("module", selectedModule);
+                startActivityForResult(intent, requestCodeForModuleCode);
             }
         });
     }
