@@ -7,6 +7,11 @@
     android:orientation="vertical"
     tools:context="com.myapplicationdev.android.p03_classjournal.infoPage">
 
+    <ListView
+        android:id="@+id/lvWeeks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,9 +38,5 @@
             android:layout_weight="1"
             android:text="Email" />
     </LinearLayout>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>
