@@ -67,8 +67,9 @@ public class infoPage extends AppCompatActivity {
                 // Put essentials like email address, subject & body text
                 email.putExtra(Intent.EXTRA_EMAIL,
                         new String[]{"jason_lim@rp.edu.sg"});
-                email.putExtra(Intent.EXTRA_SUBJECT,
-                        "Test Email from C347");
+                String message = "Hi faci,\n \nI am...\nPlease see my remarks so far, thank you";
+
+                email.putExtra(Intent.EXTRA_TEXT,message);
 
                 // This MIME type indicates email
                 email.setType("message/rfc822");
