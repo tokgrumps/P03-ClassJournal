@@ -98,15 +98,13 @@ public class infoPage extends AppCompatActivity {
         //  and data contains something
         if (resultCode == RESULT_OK) {
             if (data != null) {
+                String grade = data.getStringExtra("grade");
+//                Log.d("error", grade);
+                    int newWeekNumber = lv.getAdapter().getCount() + 1;
+                    week.add(new Weeks("Week " + newWeekNumber, grade));
 
-            }
-            if (requestCode == 1){
-                Intent i = getIntent();
-                String grade = i.getStringExtra("grade");
-                int newWeekNumber = lv.getAdapter().getCount() + 1;
-                week.add(new Weeks("Week " + newWeekNumber, grade));
+                    aa.notifyDataSetChanged();
 
-                aa.notifyDataSetChanged();
             }
         }
     }

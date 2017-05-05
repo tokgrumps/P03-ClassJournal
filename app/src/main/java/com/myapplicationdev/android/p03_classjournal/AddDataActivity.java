@@ -19,7 +19,7 @@ public class AddDataActivity extends AppCompatActivity {
 
         ImageView iv = (ImageView)findViewById(R.id.ivDG);
         TextView tvWeek = (TextView)findViewById(R.id.tvWeek);
-        final RadioGroup rgGrade = (RadioGroup)findViewById(R.id.rgGrade);
+
         Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
 
         iv.setImageResource(R.drawable.dg);
@@ -31,6 +31,7 @@ public class AddDataActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RadioGroup rgGrade = (RadioGroup)findViewById(R.id.rgGrade);
                 int rgSel = rgGrade.getCheckedRadioButtonId();
                 RadioButton rb = (RadioButton)findViewById(rgSel);
                 String rbSel = rb.getText().toString();
