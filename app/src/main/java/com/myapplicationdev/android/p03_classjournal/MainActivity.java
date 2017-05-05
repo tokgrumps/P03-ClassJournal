@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         module.add(new Module("C347", "Android Programming II"));
         module.add(new Module("C302", "Web Services"));
 
-        aa = new ModuleAdapter(this, R.layout.row, module);
+        aa = new ModuleAdapter(this, R.layout.row_main, module);
         lvModule.setAdapter(aa);
 
         lvModule.setOnItemClickListener(new AdapterView.OnItemClickListener() {

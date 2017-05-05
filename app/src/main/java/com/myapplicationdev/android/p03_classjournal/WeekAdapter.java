@@ -23,15 +23,15 @@ public class WeekAdapter extends ArrayAdapter<Weeks> {
     }
 
     // getView() is the method ListView will call to get the
-    //  View object every time ListView needs a row
+    //  View object every time ListView needs a row_main
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // The usual way to get the LayoutInflater object to
         //  "inflate" the XML file into a View object
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        // "Inflate" the row.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.row, parent, false);
+        // "Inflate" the row_main.xmln.xml as the layout for the View object
+        View rowView = inflater.inflate(R.layout.row_main, parent, false);
 
         // Get the TextView object
         tvSubject = (TextView) rowView.findViewById(R.id.tvSubject);
@@ -39,7 +39,7 @@ public class WeekAdapter extends ArrayAdapter<Weeks> {
 
 
         // The parameter "position" is the index of the
-        //  row ListView is requesting.
+        //  row_main ListView is requesting.
         //  We get back the food at the same index.
         Weeks currentWeek = week.get(position);
         // Set the TextView to show the food
