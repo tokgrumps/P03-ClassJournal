@@ -26,8 +26,10 @@ public class infoPage extends AppCompatActivity {
         btnEmail = (Button) findViewById(R.id.buttonEmail);
 
         week = new ArrayList<Weeks>();
-        week.add(new Weeks("Week 1", true));
+        week.add(new Weeks("Week 1", "B"));
 
+        aa = new WeekAdapter(this, R.layout.row_info_page, week);
+        lv.setAdapter(aa);
 
     }
 }

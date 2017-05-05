@@ -2,13 +2,20 @@ package com.myapplicationdev.android.p03_classjournal;
 
 
 public class Weeks {
-    private String name;
-    private boolean img;
-    public Weeks(String name, boolean img) {
-        this.name = name;
+    private String week;
+    private String grade;
+    public Weeks(String week, String grade) {
+        this.week = week;
+        this.grade = grade;
     }
-    public String getName() {
-        return name;
+
+    public String getWeek() {
+        return week;
     }
+
+    public String getGrade() {
+        return grade;
+    }
+
 }
 
