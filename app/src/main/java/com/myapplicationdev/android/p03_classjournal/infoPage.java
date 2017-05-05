@@ -94,7 +94,6 @@ public class infoPage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Log.d("error: ", "ddddddd");
         // Only handle when 2nd activity closed normally
         //  and data contains something
         if (resultCode == RESULT_OK) {
@@ -107,7 +106,6 @@ public class infoPage extends AppCompatActivity {
                 int newWeekNumber = lv.getAdapter().getCount() + 1;
                 week.add(new Weeks("Week " + newWeekNumber, grade));
 
-                Log.d("error: ", week.size() + "");
                 aa.notifyDataSetChanged();
             }
         }
