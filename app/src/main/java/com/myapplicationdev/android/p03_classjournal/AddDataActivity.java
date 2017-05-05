@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class AddDataActivity extends AppCompatActivity {
     RadioGroup rgGrade = (RadioGroup)findViewById(R.id.rgGrade);
     Button btnSubmit = (Button)findViewById(R.id.btnSubmit);
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +25,22 @@ public class AddDataActivity extends AppCompatActivity {
 
         iv.setImageResource(R.drawable.dg);
 
-        Intent i = getIntent();
 
-        DailyCA dailyGrade = (DailyCA)
+        Intent i = getIntent();
+        tvWeek.setText("Week " + i.getStringExtra("week"));
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int rgSel = rgGrade.getCheckedRadioButtonId();
+                RadioButton rb = (RadioButton)findViewById(rgSel);
+                String rbSel = rb.getText().toString();
+
+                Intent i = new Intent();
+                i.putExtra("grade", rbSel);
+
+                setResult(RESULT_OK, i);
+                finish();
 
             }
         });

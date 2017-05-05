@@ -1,10 +1,13 @@
 package com.myapplicationdev.android.p03_classjournal;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,5 +34,30 @@ public class infoPage extends AppCompatActivity {
         aa = new WeekAdapter(this, R.layout.row_info_page, week);
         lv.setAdapter(aa);
 
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(infoPage.this,
+                        AddDataActivity.class);
+                int newWeekNumber = lv.getAdapter().getCount() + 1;
+                // Put hero object in intent
+                i.putExtra("week", newWeekNumber);
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Only handle when 2nd activity closed normally
+        //  and data contains something
+        if (resultCode == RESULT_OK) {
+            if (data != null) {
+
+            }
+        }
     }
 }
