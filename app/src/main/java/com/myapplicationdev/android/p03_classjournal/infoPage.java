@@ -107,6 +107,7 @@ public class infoPage extends AppCompatActivity {
 
                     aa.notifyDataSetChanged();
 
+
             }
         }
     }
